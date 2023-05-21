@@ -1,0 +1,62 @@
+<html>
+  <head>
+    
+    <title>Todo</title>
+    <!-- Import font family -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> -->
+    <script src="https://kit.fontawesome.com/20a434e469.js" crossorigin="anonymous"></script>
+    <!-- Import CSS file -->
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    
+    <h1>Todo List App</h1> <!-- Heading of the app -->
+
+    <!-- Container for input task and show the list of task -->
+    <div id="container">
+      <!-- Form for taking input -->
+      <div class="form" id="add">
+        <input placeholder="Add a task" class="add-task" id="add-task" data-helloWord="asdasdas"/>
+        <button id="submit" class="submit"> + </button>
+      </div>
+
+       <!-- Button for mark all tasks as completed -->
+      <div class="buttons">
+       
+        <button class="allComplete">Complete all tasks</button>
+        <!-- Button for clear all tasks -->
+        <button class="clearComplete">Clear completed</button>
+      </div>
+     
+      <!-- List of tasks -->
+      <ul id="list">
+      </ul>
+
+      <hr/>
+
+      <div class="buttons">
+        <span id="total-tasks">Task left: <span id="tasks-counter">0</span></span>
+        <div id="filter">
+          <!-- Default checked option to see all tasks -->
+          <input type="radio" id="age1" name="choice" class="choice" value="All" checked>
+          <label for="age1">All</label>
+          <!-- Option to see uncompleted tasks -->
+          <input type="radio" id="age2" name="choice" class="choice" value="Uncomplete">
+          <label for="age2">Uncomplete</label>
+          <!-- Option to see completed tasks -->
+          <input type="radio" id="age3" name="choice" class="choice" value="Completed">
+          <label for="age3">Completed</label><br>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- The actual snackbar -->
+    <div id="snackbar"></div>
+
+
+    <!-- Import JS file -->
+    <script src="index.js"></script>
+  </body>
+</html>

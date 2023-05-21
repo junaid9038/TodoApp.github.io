@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+    /* Use border box as box sizing */
+    font-family: 'Poppins', sans-serif;
+    /* Using Google fonts for whole page */
+  }
+  
+  body {
+    background-color: #726046;;
+    /* Setting background color */
+    color: #420e3a;
+    /* Setting text color */
+  }
+  
+  #container {
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  /* List of element css start here */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: inherit;
+    align-items: center;
+  }
+  
+  ul li:hover {
+    background: #f3f3f3;
+  }
+  
+  #list input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+  }
+  
+  #list label {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  #list label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #0079bf;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  #list input:checked+label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 9px;
+    width: 6px;
+    height: 14px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  #list input:checked+label:before {
+    background: #0079bf;
+  }
+  
+  #list input:checked+label {
+    text-decoration: line-through;
+  }
+  
+  .delete {
+    height: 28px;
+    border-radius: 3px;
+    display: none;
+  }
+  
+  .delete:hover {
+    background: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  li:hover .delete {
+    display: block;
+  }
+  /* List of element css end here */
+  
+  
+  h1 {
+    text-align: center; /* Make title center */
+  }
+  
+  /* Input box for form css start here */
+  .form {
+    width: 100%;
+    display: flex;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+  
+  .add-task {
+    width: 90%;
+    outline: none;
+    font-size: 15px;
+    padding: 11px;
+    margin: 0;
+    border: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  
+  #submit {
+    width: 10%;
+    padding: 11px;
+    outline: none;
+    border: none;
+    margin: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  
+  /* Input box for form css end here */
+  
+  
+  /* Task count css start here */
+  #total-tasks {
+    margin-bottom: 20px;
+    font-size: 13px;
+    margin-left: 2px;
+    color: #fff;
+  }
+  
+  /* Task count css end here */
+  
+  /* Clear and Mark completed task button css start here */
+  .buttons {
+    display: flex;
+    /* Making display as flex */
+    justify-content: space-between;
+    padding-left: 25px;       /* button part */
+    padding-right: 25px;
+    align-items: top;
+    font-size: 13px;
+  }
+  
+  .buttons button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
+    cursor: pointer;
+  }
+  
+  /* Clear and Mark completed task button css end here */
+  
+  /* Choice of filter css start here */
+  input[type="radio"]:checked+label {
+    font-weight: bolder;
+  }
+  
+  input[type="radio"]+label {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  /* End here */
+  
+  
+  
+  
+  /* The snackbar - position it at the bottom and in the middle of the screen */
+  #snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on any message */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 6px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 0.5s;
+    animation: fadein 0.5s, fadeout 0.5s 1s;
+  }
+  
+  #snackbar.green {
+    background-color: green;
+    /* Green background color */
+  }
+  
+  #snackbar.red {
+    background-color: red;
+    /* Red background color */
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+  
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+  
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+  
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+  
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
